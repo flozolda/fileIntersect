@@ -1,7 +1,9 @@
 require "awesome_print"
 
-folder_1 = "f1"
-folder_2 = "f2"
+ap "Path to folder 1:"
+folder_1 = gets.chomp
+ap "Path to folder 2:"
+folder_2 = gets.chomp
 
 files_1 = Dir.children(folder_1)
 files_2 = Dir.children(folder_2)
@@ -9,11 +11,11 @@ files_2 = Dir.children(folder_2)
 file_names_1 = []
 to_delete = []
 
-Dir.children("f1").each do |file|
+files_1.each do |file|
   file_names_1 << file.split(".")[0]
 end
 
-Dir.children("f2").each do |file|
+files_2.each do |file|
   unless file_names_1.include?(file.split(".")[0])
     to_delete << file
   end
